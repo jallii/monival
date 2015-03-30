@@ -6,7 +6,7 @@
 package harj.monivalinta;
 
 import harj.monivalinta.view.UserInterface;
-import harj.monivalinta.SovellusLogiikka;
+import harj.monivalinta.Controller;
 
 /**
  *
@@ -20,10 +20,11 @@ public class Monivalinta {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        SovellusLogiikka kone = new SovellusLogiikka();
-        kone = new SovellusLogiikka();
+        Controller kone = new Controller();
+        kone = new Controller();
         UserInterface ui = new UserInterface(kone) {
 
+            
             @Override
             public void start() {
                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

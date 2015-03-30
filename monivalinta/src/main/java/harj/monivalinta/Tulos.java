@@ -1,6 +1,4 @@
-package harj.monivalinta.model;
-
-import java.util.Map;
+package harj.monivalinta;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -12,9 +10,7 @@ import java.util.Map;
  *
  * @author boss
  */
-public class Users {
-
-    private Map<String, User> users;
-
-
+public class Tulos {
+       
+//viimeistellään tekemään raportti   
 }

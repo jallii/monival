@@ -3,17 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package harj.monivalinta.view;
 
-import harj.monivalinta.Controller;
+package harj.monivalinta;
 
 /**
  *
- * @author boss
+ * @author lmjaland
  */
-public interface UserInterface{
-
-    
-    public void start();
-
+public interface Command {
+    public User haeUser(String username);
 }
+

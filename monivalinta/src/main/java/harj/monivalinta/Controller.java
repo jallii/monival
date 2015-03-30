@@ -5,10 +5,15 @@
  */
 package harj.monivalinta;
 
+import harj.monivalinta.model.Matsku;
+
 /**
  *
  * @author boss
  */
-public class SovellusLogiikka {
+public class Controller  {
+ 
+  public Matsku updateView(Matsku m){return m;};
+  
     
 }
