@@ -1,8 +1,5 @@
 package harj.monivalinta;
 
-import harj.monivalinta.resources.Users;
-import harj.monivalinta.model.User;
-import harj.monivalinta.model.Tulos;
 import harj.monivalinta.model.*;
 import java.security.MessageDigest;
 import java.util.UUID;
@@ -47,16 +44,16 @@ public class Controlleri {
         this.k = new Kysymys();
     }
 
-//Login toiminnot
-    public boolean userOnOlemassa(String unimi) {
-//        return false;
-        return us.getUsers().containsKey(unimi);
-    }
-
-    public boolean tsekkaaSalasana(String unimi, String hashPw) {
-//        return false;
-        return us.getUsers().get(unimi).getPassword().contentEquals(hashPw);
-    }
+////Login toiminnot
+//    public boolean userOnOlemassa(String unimi) {
+////        return false;
+//        return us.getUsers().containsKey(unimi);
+//    }
+//
+//    public boolean tsekkaaSalasana(String unimi, String hashPw) {
+////        return false;
+//        return us.getUsers().get(unimi).getPassword().contentEquals(hashPw);
+//    }
 
     public String kryptaa(String pw) throws Exception {
         MessageDigest md = MessageDigest.getInstance("SHA-256");
@@ -78,9 +75,9 @@ public class Controlleri {
         return UUID.randomUUID().toString();
     }
 
-    public User annaUser(String unimi) {
-        return us.getUsers().get(unimi);
-    }
+//    public User annaUser(String unimi) {
+//        return us.getUsers().get(unimi);
+//    }
 
     public Matsku annaMatsku(String filenimi) {
         return m;

@@ -1,9 +1,10 @@
+
+
 package harj.monivalinta;
 
 
 import java.util.Scanner;
 
-import harj.monivalinta.view.UserInterface;
 public class Monivalinta {
 
     private static Scanner lukija;
@@ -20,21 +21,20 @@ public class Monivalinta {
     private static String menu8 = "Käynnistä Graafinen käyttäliittymä";
 
     static String nimi, salasana;
-    static boolean userOnOlemassa=false, okSalasana=true;
+    static boolean userOnOlemassa = false, okSalasana = true;
 
     public Monivalinta() {
         Monivalinta.c = new Controlleri();
-        
 
     }
 
     public static void main(String[] args) {
-<<<<<<< HEAD
-       Monivalinta.lukija = new Scanner(System.in);
+        Monivalinta.lukija = new Scanner(System.in);
         printtaaMenu();
-       if (lukija.hasNext())
-       {valinta=lukija.nextInt();}
-       valitse(valinta);
+        if (lukija.hasNext()) {
+            valinta = lukija.nextInt();
+        }
+        valitse(valinta);
     }
 
     private static void printtaaMenu() {
@@ -85,28 +85,17 @@ public class Monivalinta {
         System.out.println("Hoida Menu1");
         System.out.println("Anna käyttäjänimesi:");
         nimi = lukija.next();
-        userOnOlemassa = c.userOnOlemassa(nimi);
+//        userOnOlemassa = c.userOnOlemassa(nimi);
 
         if (userOnOlemassa) {
             System.out.println("Anna salasana");
             salasana = lukija.next();
 //            okSalasana = c.tsekkaaSalasana(nimi, salasana);
             if (okSalasana) {
-                c.u = c.annaUser(nimi);
-=======
-        Controller kone = new Controller();
-        kone = new Controller();
-        UserInterface ui = new UserInterface(kone) {
-
-            
-            @Override
-            public void start() {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
->>>>>>> 5b80e6f88e078c8de5397997615f257514e4a84a
+//                c.u = c.annaUser(nimi);
             }
-        } else {
-            System.out.println("Virhe käyttäjänimessä tai salasanassa");
         }
+
     }
 
     private static void menu2() {
@@ -118,7 +107,7 @@ public class Monivalinta {
             nimi = lukija.next();
 //            userO2nOlemassa = c.userOnOlemassa(nimi);
             if (!userOnOlemassa) {
-                c.u = c.annaUser(nimi);
+//                c.u = c.annaUser(nimi);
                 jatka = false;
             } else {
                 jatka = true;
@@ -162,7 +151,7 @@ public class Monivalinta {
         boolean jatka = true;
         if (jatka) {
             printtaaMenu();
-            valitse();
+//            valitse();
         } else {
             System.exit(0);
         }
