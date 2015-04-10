@@ -1,6 +1,11 @@
 package harj.monivalinta;
 
+<<<<<<< HEAD
 import java.util.Scanner;
+=======
+import harj.monivalinta.view.UserInterface;
+import harj.monivalinta.Controller;
+>>>>>>> 5b80e6f88e078c8de5397997615f257514e4a84a
 
 public class Monivalinta {
 
@@ -27,6 +32,7 @@ public class Monivalinta {
     }
 
     public static void main(String[] args) {
+<<<<<<< HEAD
        Monivalinta.lukija = new Scanner(System.in);
         printtaaMenu();
        if (lukija.hasNext())
@@ -90,6 +96,16 @@ public class Monivalinta {
 //            okSalasana = c.tsekkaaSalasana(nimi, salasana);
             if (okSalasana) {
                 c.u = c.annaUser(nimi);
+=======
+        Controller kone = new Controller();
+        kone = new Controller();
+        UserInterface ui = new UserInterface(kone) {
+
+            
+            @Override
+            public void start() {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> 5b80e6f88e078c8de5397997615f257514e4a84a
             }
         } else {
             System.out.println("Virhe käyttäjänimessä tai salasanassa");

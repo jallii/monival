@@ -1,17 +1,27 @@
+<<<<<<< HEAD:monivalinta/src/main/java/harj/monivalinta/model/Users.java
 package harj.monivalinta.model;
 
 import java.util.HashMap;
 import java.util.Objects;
 
+=======
+>>>>>>> 5b80e6f88e078c8de5397997615f257514e4a84a:monivalinta/src/main/java/harj/monivalinta/Command.java
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+<<<<<<< HEAD:monivalinta/src/main/java/harj/monivalinta/model/Users.java
+=======
+
+package harj.monivalinta;
+
+>>>>>>> 5b80e6f88e078c8de5397997615f257514e4a84a:monivalinta/src/main/java/harj/monivalinta/Command.java
 /**
  *
- * @author boss
+ * @author lmjaland
  */
+<<<<<<< HEAD:monivalinta/src/main/java/harj/monivalinta/model/Users.java
 public class Users {
 
     private HashMap<String, User> users;
@@ -62,4 +72,9 @@ public void addNewUser(String name){
         return "Users{" + "users=" + users + '}';
     }
 
+=======
+public interface Command {
+    public User haeUser(String username);
+>>>>>>> 5b80e6f88e078c8de5397997615f257514e4a84a:monivalinta/src/main/java/harj/monivalinta/Command.java
 }
+
