@@ -1,5 +1,8 @@
 package harj.monivalinta.model;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Kysymys {
@@ -23,7 +26,6 @@ public class Kysymys {
     }
 
     public Kysymys() {
-
     }
 
     public Object getIntroObjekti() {
@@ -53,7 +55,17 @@ public class Kysymys {
     public void lisaaVaihtoehto(Vastaus v) {
         this.vaihtoehto.add(v);
     }
+//
+//    public List<String> getVaihtoehdot(Kysymys k){
+//        
+//        List<String> stringList = new ArrayList<>();
+//        String st="";
+//        Iterator itr =this.getVaihtoehto().iterator();
+// 
+//     return apu;
+//}
 
+    
     public String esitaVaihtoehto(Vastaus v) {
         return v.getVastauslause();
     }
