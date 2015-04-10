@@ -41,6 +41,10 @@ public class Vastaus {
         this.onkoVastausValittu = false;
     }
 
+    public Vastaus() {
+       
+    }
+
     //*** SETTERIT ****
     public void setVastauslause(String vastauslause) {
         this.vastauslause = vastauslause;

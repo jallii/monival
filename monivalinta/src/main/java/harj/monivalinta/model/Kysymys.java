@@ -1,130 +1,77 @@
 package harj.monivalinta.model;
 
-import harj.monivalinta.model.Vastaukset;
-import java.util.Map;
-import java.util.Objects;
+import java.util.List;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- *
- * @author boss
- */
 public class Kysymys {
 
-    private int nro;
-    private String kysymysLause;
-    private Map<Integer, Vastaukset> vastausVaihtoehdot;
+    //Jokaiseen monivalintakysymykseen liittyy jokin IntroObjekti. Se voi olla 
+    //kuva, video, äänitiedosto, appletti tms. Siksi se on objekti. 
+    //Aluksi varmaan suurimmassa osassa on kyse kuvasta. Objekti voi liittyä 
+    //aiheeseen, tai sitten se on muuten vaan mukavan näköinen.
+    //Varsinainen kysymyslause Introlause on koko kysymyksen ydin. 
+    //Kuhunkin kysymykseen liitty sitten useimmiten 2-5 mutta tarvittaessa 
+    //vaikka 10 kappaletta väitelauseita, joihin vastataan. 
+    //
+    private Object IntroObjekti;
+    private String IntroLause;
+    private List<Vastaus> vaihtoehto;
 
-    public Kysymys(int nro, String kysymysLause, Map<Integer, Vastaukset> vastausVaihtoehdot) {
-        this.nro = nro;
-        this.kysymysLause = kysymysLause;
-        this.vastausVaihtoehdot = vastausVaihtoehdot;
+    public Kysymys(Object IntroObjekti, String IntroLause, List<Vastaus> v) {
+        this.IntroObjekti = IntroObjekti;
+        this.IntroLause = IntroLause;
+        this.vaihtoehto = v;
     }
 
-    public Kysymys(String kysymysLause, Map<Integer, Vastaukset> vastausVaihtoehdot) {
-        this.kysymysLause = kysymysLause;
-        this.vastausVaihtoehdot = vastausVaihtoehdot;
+    public Kysymys() {
+        
     }
 
-    public int getNro() {
-        return nro;
+    public Object getIntroObjekti() {
+        return IntroObjekti;
     }
 
-    public String getKysymysLause() {
-        return kysymysLause;
+    public String getIntroLause() {
+        return IntroLause;
     }
 
-    public Map<Integer, Vastaukset> getVastausVaihtoehdot() {
-        return vastausVaihtoehdot;
+    public List<Vastaus> getVaihtoehto() {
+        return vaihtoehto;
     }
 
-    public void setNro(int nro) {
-        this.nro = nro;
+    public void setIntroObjekti(Object IntroObjekti) {
+        this.IntroObjekti = IntroObjekti;
     }
 
-    public void setKysymysLause(String kysymysLause) {
-        this.kysymysLause = kysymysLause;
+    public void setIntroLause(String IntroLause) {
+        this.IntroLause = IntroLause;
     }
 
-    public void setVastausVaihtoehdot(Map<Integer, Vastaukset> vastausVaihtoehdot) {
-        this.vastausVaihtoehdot = vastausVaihtoehdot;
+    public void setVaihtoehto(List<Vastaus> v) {
+        this.vaihtoehto = v;
     }
 
-    public int hashCodeKysymysNro() {
-        int hash = 3;
-        hash = 83 * hash + this.nro;
-        return hash;
+    public void lisaaVaihtoehto(Vastaus v) {
+        this.vaihtoehto.add(v);
     }
 
-    public boolean equalsKysymysNro(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Kysymys other = (Kysymys) obj;
-        if (this.nro != other.nro) {
-            return false;
-        }
-        return true;
+    public String esitaVaihtoehto(Vastaus v) {
+        return v.getVastauslause();
     }
 
-    public int hashCodeKysymysLause() {
-        int hash = 7;
-        hash = 67 * hash + Objects.hashCode(this.kysymysLause);
-        return hash;
+    public void valitseVaihtoehto(Vastaus v) {
+        v.setOnkoVastausValittu(Boolean.TRUE);
     }
 
-    public boolean equalsKysymysLause(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Kysymys other = (Kysymys) obj;
-        if (!Objects.equals(this.kysymysLause, other.kysymysLause)) {
-            return false;
-        }
-        return true;
-    }
-
-    public boolean equalsKysymys(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Kysymys other = (Kysymys) obj;
-        if (this.nro != other.nro) {
-            return false;
-        }
-        if (!Objects.equals(this.kysymysLause, other.kysymysLause)) {
-            return false;
-        }
-        if (!Objects.equals(this.vastausVaihtoehdot, other.vastausVaihtoehdot)) {
-            return false;
-        }
-        return true;
-    }
-
-    public String toStringKysymysJaVastausVaihtoehdot() {
-        return "Kysymys{" + "vastausVaihtoehdot=" + vastausVaihtoehdot + '}';
-    }
-
-    public String toStringKysymysNro() {
-        return "Kysymys{" + "nro=" + nro + '}';
+    public boolean tarkistaVaihtoehto(Vastaus v) {
+        boolean oikeaVastaus;
+        oikeaVastaus = (v.getOnkoVastausValittu()) & (v.getVastauksenTotuusarvo())
+                | ((!v.getOnkoVastausValittu()) & (!v.getVastauksenTotuusarvo()));
+        return oikeaVastaus;
     }
 
     @Override
     public String toString() {
-        return "Kysymys{" + "nro=" + nro + ", kysymysLause=" + kysymysLause + ", vastausVaihtoehdot=" + vastausVaihtoehdot + '}';
+        return "Kysymys{" + "IntroObjekti=" + IntroObjekti + ", IntroLause=" + IntroLause + ", vastaus=" + vaihtoehto + '}';
     }
 
 }
