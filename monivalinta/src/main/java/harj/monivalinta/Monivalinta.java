@@ -1,12 +1,9 @@
 package harj.monivalinta;
 
-<<<<<<< HEAD
-import java.util.Scanner;
-=======
-import harj.monivalinta.view.UserInterface;
-import harj.monivalinta.Controller;
->>>>>>> 5b80e6f88e078c8de5397997615f257514e4a84a
 
+import java.util.Scanner;
+
+import harj.monivalinta.view.UserInterface;
 public class Monivalinta {
 
     private static Scanner lukija;

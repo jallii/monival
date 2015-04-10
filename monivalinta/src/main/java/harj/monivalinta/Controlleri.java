@@ -1,5 +1,8 @@
 package harj.monivalinta;
 
+import harj.monivalinta.resources.Users;
+import harj.monivalinta.model.User;
+import harj.monivalinta.model.Tulos;
 import harj.monivalinta.model.*;
 import java.security.MessageDigest;
 import java.util.UUID;
