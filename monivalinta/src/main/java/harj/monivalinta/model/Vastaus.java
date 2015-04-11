@@ -15,7 +15,7 @@ public class Vastaus {
      * boolean kenttää.
      */
     private String vastauslause;
-    private Boolean vastauksenTotuusarvo;
+    private Boolean onkoVastausTosi;
     private Boolean onkoVastausValittu;
 
 //<editor-fold defaultstate="collapsed" desc="CONSTRUKTORIT">
@@ -33,7 +33,7 @@ public class Vastaus {
      */
     public Vastaus(String lause, Boolean onkoTosi) {
         this.vastauslause = lause;
-        this.vastauksenTotuusarvo = onkoTosi;
+        this.onkoVastausTosi = onkoTosi;
         this.onkoVastausValittu = false;
     }
 
@@ -43,7 +43,7 @@ public class Vastaus {
      */
     public Vastaus(String vastauslause) {
         this.vastauslause = vastauslause;
-        this.vastauksenTotuusarvo = false;
+        this.onkoVastausTosi = false;
         this.onkoVastausValittu = false;
     }
 
@@ -52,7 +52,7 @@ public class Vastaus {
      */
     public Vastaus() {
         this.vastauslause = "";
-        this.vastauksenTotuusarvo = false;
+        this.onkoVastausTosi = false;
         this.onkoVastausValittu = false;
     }
 
@@ -69,11 +69,11 @@ public class Vastaus {
 
     /**
      *
-     * @param vastauksenTotuusarvo sisältää tiedon siitä onko vastauksen väite
+     * @param onkoVastausTosi sisältää tiedon siitä onko vastauksen väite
      * lause tosi tai ei
      */
-    public void setVastauksenTotuusarvo(Boolean vastauksenTotuusarvo) {
-        this.vastauksenTotuusarvo = vastauksenTotuusarvo;
+    public void setOnkoVastausTosi(Boolean onkoVastausTosi) {
+        this.onkoVastausTosi = onkoVastausTosi;
     }
 
     /**
@@ -99,11 +99,11 @@ public class Vastaus {
 
     /**
      *
-     * @return vastauksenTotuusarvo palauttaa true, jos vastausvaihtoehto on
-     * tosi
+     * @return onkoVastausTosi palauttaa true, jos vastausvaihtoehto on
+ tosi
      */
-    public Boolean getOnkoVastausTotta() {
-        return vastauksenTotuusarvo;
+    public Boolean getOnkoVastausTosi() {
+        return onkoVastausTosi;
     }
 
     /**
@@ -122,7 +122,7 @@ public class Vastaus {
      */
     public boolean getOnkoOikeaValittu() {
         boolean apu = false;
-        if (this.vastauksenTotuusarvo && this.onkoVastausValittu) {
+        if (this.onkoVastausTosi && this.onkoVastausValittu) {
             apu = true;
         }
         return apu;
@@ -135,10 +135,10 @@ public class Vastaus {
      */
     public boolean getOnkoOikeinValittu() {
         boolean apu = false;
-        if (this.vastauksenTotuusarvo && this.onkoVastausValittu) {
+        if (this.onkoVastausTosi && this.onkoVastausValittu) {
             apu = true;
         }
-        if ((!this.vastauksenTotuusarvo && !this.onkoVastausValittu)) {
+        if ((!this.onkoVastausTosi && !this.onkoVastausValittu)) {
             apu = true;
         }
         return apu;
@@ -156,7 +156,7 @@ public class Vastaus {
     }
 
     public String toStringOikeaVastaus() {
-        if (vastauksenTotuusarvo) {
+        if (onkoVastausTosi) {
             return vastauslause;
         } else {
             return "";
@@ -164,7 +164,7 @@ public class Vastaus {
     }
 
     public String toStringVaaraVastaus() {
-        if (!vastauksenTotuusarvo) {
+        if (!onkoVastausTosi) {
             return vastauslause;
         } else {
             return "";
