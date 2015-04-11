@@ -7,19 +7,20 @@ public class Monivalinta {
     private static Scanner lukija;
     private static Controlleri c;
     private static int valinta = 0;
-    private static String menu1 = "Kirjaudu käyttäjänä";
-    private static String menu2 = "Tee uusi käyttäjä";
-    private static String menu3 = "Avaa materiaali";
-    private static String menu4 = "Tee uusi materiaali";
-    private static String menu5 = "Aloita vastaaminen";
-    private static String menu6 = "Tarkastele tuloksia";
-    private static String menu7 = "Lopeta";
-    private static String menu8 = "Käynnistä Graafinen käyttäliittymä";
+    private static String menu0 = "0. Käynnistä graafinen käyttöliittymä";
+    private static String menu1 = "1. Kirjaudu käyttäjänä";
+    private static String menu2 = "2. Tee uusi käyttäjä";
+    private static String menu3 = "3. Avaa materiaali";
+    private static String menu4 = "4. Tee uusi materiaali";
+    private static String menu5 = "5. Aloita vastaaminen";
+    private static String menu6 = "6. Tarkastele tuloksia";
+    private static String menu7 = "7. Lopeta";
+    private static String menu8 = "8. Optio ";
     private static String unimi = "Anna käyttäjänimesi";
     private static String enimi = "Anna etunimesi";
     private static String snimi = "Anna sukunimesi";
     private static String pass = "Anna salasana";
-    private static String valitseNyt = "Ole hyvä tee valintasi;";
+    private static String valitse = "Ole hyvä tee valintasi;";
     private static String sana = "";
     private static boolean userOnOlemassa = false,
             okSalasana = true;
@@ -32,8 +33,10 @@ public class Monivalinta {
     public static void main(String[] args) {
         Monivalinta.c = new Controlleri();
         Monivalinta.lukija = new Scanner(System.in);
+
         printtaaMenu();
-        valinta = kysyInt(valitseNyt);
+
+        kysyInt(valitse);
         valitse(valinta);
 
     }
@@ -41,7 +44,7 @@ public class Monivalinta {
     public static void runTXT() {
         if (jatka) {
             printtaaMenu();
-            valinta = kysyInt(valitseNyt);
+            valinta = kysyInt(valitse);
             valitse(valinta);
 
         } else {
@@ -110,9 +113,15 @@ public class Monivalinta {
             }
             case 8: {
                 System.out.println(menu8);
-                lopetaOhjelma();
+                c.lopetaOhjelma();
             }
         }
+    }
+
+    private static void menu0() {
+        System.out.println(menu1);
+        Gui g = new Gui();
+        g.setVisible(false);
     }
 
     private static void menu1() {
@@ -153,11 +162,6 @@ public class Monivalinta {
     private static void menu8() {
         System.out.println(menu8);
         jatka = false;
-    }
-
-    private static void lopetaOhjelma() {
-        System.out.println(menu7);
-        c.lopetaOhjelma();
     }
 
     private static void teeUser() {
@@ -215,6 +219,4 @@ public class Monivalinta {
 //        }
 //
 //    }
-
-
 }

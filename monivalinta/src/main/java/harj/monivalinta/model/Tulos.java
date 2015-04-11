@@ -10,7 +10,7 @@ package harj.monivalinta.model;
  *
  * @author boss
  */
-public class Tulos {
-       
-//viimeistellään tekemään raportti   
+public class Tulos extends Vastaus {
+
+   
 }

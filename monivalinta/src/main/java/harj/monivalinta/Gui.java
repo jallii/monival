@@ -7,17 +7,16 @@ package harj.monivalinta;
 
 public class Gui extends javax.swing.JFrame {
 
-   
+    static void start() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /**
      * Creates new form Gui
      */
     public Gui() {
+        Controlleri c = new Controlleri();
         initComponents();
-    }
-
-    public Gui(Controlleri c) {
-       c= new Controlleri();
-       initComponents();
     }
 
     /**
@@ -30,88 +29,130 @@ public class Gui extends javax.swing.JFrame {
     private void initComponents() {
 
         desktopPane = new javax.swing.JDesktopPane();
+        jInfo = new javax.swing.JTextField();
         menuBar = new javax.swing.JMenuBar();
-        fileMenu = new javax.swing.JMenu();
-        openMenuItem = new javax.swing.JMenuItem();
-        saveMenuItem = new javax.swing.JMenuItem();
-        saveAsMenuItem = new javax.swing.JMenuItem();
-        exitMenuItem = new javax.swing.JMenuItem();
-        editMenu = new javax.swing.JMenu();
-        cutMenuItem = new javax.swing.JMenuItem();
-        copyMenuItem = new javax.swing.JMenuItem();
-        pasteMenuItem = new javax.swing.JMenuItem();
-        deleteMenuItem = new javax.swing.JMenuItem();
-        helpMenu = new javax.swing.JMenu();
-        contentMenuItem = new javax.swing.JMenuItem();
-        aboutMenuItem = new javax.swing.JMenuItem();
+        mLoginMenu = new javax.swing.JMenu();
+        mUusiUser = new javax.swing.JMenuItem();
+        mLogin = new javax.swing.JMenuItem();
+        mOpettaja = new javax.swing.JMenuItem();
+        mExit = new javax.swing.JMenuItem();
+        mMateriaaliMenu = new javax.swing.JMenu();
+        mAvaaMatsku = new javax.swing.JMenuItem();
+        mAloitaKoe = new javax.swing.JMenuItem();
+        mTutkiTuloksia = new javax.swing.JMenuItem();
+        mTeeMatsku = new javax.swing.JMenuItem();
+        mOhjeMenu = new javax.swing.JMenu();
+        mOhjeita = new javax.swing.JMenuItem();
+        mAbout = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        fileMenu.setMnemonic('f');
-        fileMenu.setText("File");
+        jInfo.setText(" ");
 
-        openMenuItem.setMnemonic('o');
-        openMenuItem.setText("Open");
-        openMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        mLoginMenu.setMnemonic('K');
+        mLoginMenu.setText("Kirjautuminen");
+
+        mUusiUser.setMnemonic('U');
+        mUusiUser.setText("Uusi käyttäjä");
+        mUusiUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                openMenuItemActionPerformed(evt);
+                mUusiUserActionPerformed(evt);
             }
         });
-        fileMenu.add(openMenuItem);
+        mLoginMenu.add(mUusiUser);
 
-        saveMenuItem.setMnemonic('s');
-        saveMenuItem.setText("Save");
-        fileMenu.add(saveMenuItem);
-
-        saveAsMenuItem.setMnemonic('a');
-        saveAsMenuItem.setText("Save As ...");
-        saveAsMenuItem.setDisplayedMnemonicIndex(5);
-        fileMenu.add(saveAsMenuItem);
-
-        exitMenuItem.setMnemonic('x');
-        exitMenuItem.setText("Exit");
-        exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        mLogin.setMnemonic('L');
+        mLogin.setText("Login");
+        mLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitMenuItemActionPerformed(evt);
+                mLoginActionPerformed(evt);
             }
         });
-        fileMenu.add(exitMenuItem);
+        mLoginMenu.add(mLogin);
 
-        menuBar.add(fileMenu);
+        mOpettaja.setMnemonic('O');
+        mOpettaja.setText("Opettaja");
+        mOpettaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mOpettajaActionPerformed(evt);
+            }
+        });
+        mLoginMenu.add(mOpettaja);
 
-        editMenu.setMnemonic('e');
-        editMenu.setText("Edit");
+        mExit.setMnemonic('x');
+        mExit.setText("Exit");
+        mExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mExitActionPerformed(evt);
+            }
+        });
+        mLoginMenu.add(mExit);
 
-        cutMenuItem.setMnemonic('t');
-        cutMenuItem.setText("Cut");
-        editMenu.add(cutMenuItem);
+        menuBar.add(mLoginMenu);
 
-        copyMenuItem.setMnemonic('y');
-        copyMenuItem.setText("Copy");
-        editMenu.add(copyMenuItem);
+        mMateriaaliMenu.setMnemonic('M');
+        mMateriaaliMenu.setText("Materiaali");
 
-        pasteMenuItem.setMnemonic('p');
-        pasteMenuItem.setText("Paste");
-        editMenu.add(pasteMenuItem);
+        mAvaaMatsku.setMnemonic('t');
+        mAvaaMatsku.setText("Avaa materiaali");
+        mAvaaMatsku.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mAvaaMatskuActionPerformed(evt);
+            }
+        });
+        mMateriaaliMenu.add(mAvaaMatsku);
 
-        deleteMenuItem.setMnemonic('d');
-        deleteMenuItem.setText("Delete");
-        editMenu.add(deleteMenuItem);
+        mAloitaKoe.setMnemonic('p');
+        mAloitaKoe.setText("Aloita koe");
+        mAloitaKoe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mAloitaKoeActionPerformed(evt);
+            }
+        });
+        mMateriaaliMenu.add(mAloitaKoe);
 
-        menuBar.add(editMenu);
+        mTutkiTuloksia.setMnemonic('y');
+        mTutkiTuloksia.setText("Tarkastele tuloksia");
+        mTutkiTuloksia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mTutkiTuloksiaActionPerformed(evt);
+            }
+        });
+        mMateriaaliMenu.add(mTutkiTuloksia);
 
-        helpMenu.setMnemonic('h');
-        helpMenu.setText("Help");
+        mTeeMatsku.setMnemonic('d');
+        mTeeMatsku.setText("Tee uusi materiaali");
+        mTeeMatsku.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mTeeMatskuActionPerformed(evt);
+            }
+        });
+        mMateriaaliMenu.add(mTeeMatsku);
 
-        contentMenuItem.setMnemonic('c');
-        contentMenuItem.setText("Contents");
-        helpMenu.add(contentMenuItem);
+        menuBar.add(mMateriaaliMenu);
 
-        aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("About");
-        helpMenu.add(aboutMenuItem);
+        mOhjeMenu.setMnemonic('O');
+        mOhjeMenu.setText("Ohjeita");
 
-        menuBar.add(helpMenu);
+        mOhjeita.setMnemonic('c');
+        mOhjeita.setText("Ohjeita");
+        mOhjeita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mOhjeitaActionPerformed(evt);
+            }
+        });
+        mOhjeMenu.add(mOhjeita);
+
+        mAbout.setMnemonic('a');
+        mAbout.setText("Tietoja ohjelmasta");
+        mAbout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mAboutActionPerformed(evt);
+            }
+        });
+        mOhjeMenu.add(mAbout);
+
+        menuBar.add(mOhjeMenu);
 
         setJMenuBar(menuBar);
 
@@ -120,27 +161,66 @@ public class Gui extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(jInfo)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                .addGap(2, 2, 2)
+                .addComponent(jInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
+    private void mExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mExitActionPerformed
+        jInfo.setText("mExitActionPerformed");
         System.exit(0);
-    }//GEN-LAST:event_exitMenuItemActionPerformed
+    }//GEN-LAST:event_mExitActionPerformed
 
-    private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
-            // TODO add your handling code here:
-    }//GEN-LAST:event_openMenuItemActionPerformed
+    private void mLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mLoginActionPerformed
+        jInfo.setText("mLoginActionPerformed");
+    }//GEN-LAST:event_mLoginActionPerformed
+
+    private void mUusiUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mUusiUserActionPerformed
+        jInfo.setText("mUusiUserActionPerformed");
+    }//GEN-LAST:event_mUusiUserActionPerformed
+
+    private void mOpettajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mOpettajaActionPerformed
+       jInfo.setText("mOpettajaActionPerformed");
+    }//GEN-LAST:event_mOpettajaActionPerformed
+
+    private void mAvaaMatskuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mAvaaMatskuActionPerformed
+       jInfo.setText("mMatskuActionPerformed");
+    }//GEN-LAST:event_mAvaaMatskuActionPerformed
+
+    private void mAloitaKoeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mAloitaKoeActionPerformed
+        jInfo.setText("mAloitaKoeActionPerformed");
+    }//GEN-LAST:event_mAloitaKoeActionPerformed
+
+    private void mTutkiTuloksiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mTutkiTuloksiaActionPerformed
+jInfo.setText("mTutkiTuloksiaActionPerformed");
+    }//GEN-LAST:event_mTutkiTuloksiaActionPerformed
+
+    private void mTeeMatskuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mTeeMatskuActionPerformed
+     jInfo.setText("mTeeUusiMatskuActionPerformed");
+    }//GEN-LAST:event_mTeeMatskuActionPerformed
+
+    private void mOhjeitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mOhjeitaActionPerformed
+       jInfo.setText("mOhjeitaActionPerformed");
+    }//GEN-LAST:event_mOhjeitaActionPerformed
+
+    private void mAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mAboutActionPerformed
+      jInfo.setText("mAboutActionPerformed");
+    }//GEN-LAST:event_mAboutActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -156,37 +236,35 @@ public class Gui extends javax.swing.JFrame {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Gui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-      /* Create and display the form */
+        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-          
+
             @Override
-            public  void run() {
+            public void run() {
                 new Gui().setVisible(true);
+
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem aboutMenuItem;
-    private javax.swing.JMenuItem contentMenuItem;
-    private javax.swing.JMenuItem copyMenuItem;
-    private javax.swing.JMenuItem cutMenuItem;
-    private javax.swing.JMenuItem deleteMenuItem;
     private javax.swing.JDesktopPane desktopPane;
-    private javax.swing.JMenu editMenu;
-    private javax.swing.JMenuItem exitMenuItem;
-    private javax.swing.JMenu fileMenu;
-    private javax.swing.JMenu helpMenu;
+    private javax.swing.JTextField jInfo;
+    private javax.swing.JMenuItem mAbout;
+    private javax.swing.JMenuItem mAloitaKoe;
+    private javax.swing.JMenuItem mAvaaMatsku;
+    private javax.swing.JMenuItem mExit;
+    private javax.swing.JMenuItem mLogin;
+    private javax.swing.JMenu mLoginMenu;
+    private javax.swing.JMenu mMateriaaliMenu;
+    private javax.swing.JMenu mOhjeMenu;
+    private javax.swing.JMenuItem mOhjeita;
+    private javax.swing.JMenuItem mOpettaja;
+    private javax.swing.JMenuItem mTeeMatsku;
+    private javax.swing.JMenuItem mTutkiTuloksia;
+    private javax.swing.JMenuItem mUusiUser;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem openMenuItem;
-    private javax.swing.JMenuItem pasteMenuItem;
-    private javax.swing.JMenuItem saveAsMenuItem;
-    private javax.swing.JMenuItem saveMenuItem;
     // End of variables declaration//GEN-END:variables
-    private  Controlleri c;
-
-//    void run() {
-//        Gui.main(args);
-//    }
+    private Controlleri c;
 
 }

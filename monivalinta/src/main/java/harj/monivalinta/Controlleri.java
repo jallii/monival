@@ -31,29 +31,29 @@ public class Controlleri {
         this.k = new Kysymys();
     }
 
-    public Controlleri(Matsku m, Users u) {
-        this.u = new User();
-        this.us = new Users();
-        this.g = new Gui();
-        this.txt = new Monivalinta();
+//    public Controlleri(Matsku m, Users u) {
+//        this.u = new User();
+//        this.us = new Users();
+//        this.g = new Gui();
+//        this.txt = new Monivalinta();
+//
+//        this.t = new Tulos();
+//        this.s = new Suoritukset();
+//        this.m = new Matsku();
+//        this.v = new Vastaus();
+//        this.k = new Kysymys();
+//    }
 
-        this.t = new Tulos();
-        this.s = new Suoritukset();
-        this.m = new Matsku();
-        this.v = new Vastaus();
-        this.k = new Kysymys();
+//Login toiminnot
+    public boolean userOnOlemassa(String unimi) {
+//        return false;
+        return us.getUsers().containsKey(unimi);
     }
 
-////Login toiminnot
-//    public boolean userOnOlemassa(String unimi) {
-////        return false;
-//        return us.getUsers().containsKey(unimi);
-//    }
-//
-//    public boolean tsekkaaSalasana(String unimi, String hashPw) {
-////        return false;
-//        return us.getUsers().get(unimi).getPassword().contentEquals(hashPw);
-//    }
+    public boolean tsekkaaSalasana(String unimi, String hashPw) {
+//        return false;
+        return us.getUsers().get(unimi).getPassword().contentEquals(hashPw);
+    }
 
     public String kryptaa(String pw) throws Exception {
         MessageDigest md = MessageDigest.getInstance("SHA-256");
@@ -79,7 +79,6 @@ public class Controlleri {
 //        return us.getUsers().get(unimi);
 //    }
 
-    
     public Matsku annaMatsku(String filenimi) {
         return m;
     }
@@ -87,5 +86,5 @@ public class Controlleri {
     public void lopetaOhjelma() {
         System.exit(0);
     }
-
+ 
 }
