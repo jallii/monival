@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package harj.monivalinta.model;
 
-/**
- *
- * @author boss
- */
+import java.security.MessageDigest;
+import java.util.UUID;
+
 public class User {
 
     String password;
@@ -60,9 +54,30 @@ public class User {
     public void setSuoritukset(Suoritukset suoritukset) {
         this.suoritukset = suoritukset;
     }
+    
+public String kryptaa(String pw) throws Exception {
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
+        md.update(pw.getBytes());
+        byte byteData[] = md.digest();
 
-    public String kryptaa(String plainPw) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        StringBuilder hexString = new StringBuilder();
+        for (int i = 0; i < byteData.length; i++) {
+            String hex = Integer.toHexString(0xff & byteData[i]);
+            if (hex.length() == 1) {
+                hexString.append('0');
+            }
+            hexString.append(hex);
+        }
+        return hexString.toString();
     }
-   
+    
+    public String teeRandomSalasana() {
+        return UUID.randomUUID().toString();
+    }  
+    
+     public boolean tarkistaSalasana(String plainPw) throws Exception {
+         return this.password.equals(kryptaa(plainPw));
+    }
+
+    
 }

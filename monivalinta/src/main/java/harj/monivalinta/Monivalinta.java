@@ -171,8 +171,8 @@ public class Monivalinta {
         //
         //        while (jatka) {
         //            nimi = lukija.next();
-        ////            userO2nOlemassa = c.userOnOlemassa(nimi);
-        //            if (!userOnOlemassa) {
+        ////            userO2nOlemassa = c.onkoUserOlemassa(nimi);
+        //            if (!onkoUserOlemassa) {
         ////                c.u = c.annaUser(nimi);
         //                jatka = false;
         //            } else {
@@ -207,12 +207,12 @@ public class Monivalinta {
 //        System.out.println("Hoida Menu1");
 //        System.out.println("Anna käyttäjänimesi:");
 //        nimi = lukija.next();
-////        userOnOlemassa = c.userOnOlemassa(nimi);
+////        onkoUserOlemassa = c.onkoUserOlemassa(nimi);
 //
-//        if (userOnOlemassa) {
+//        if (onkoUserOlemassa) {
 //            System.out.println("Anna salasana");
 //            salasana = lukija.next();
-////            okSalasana = c.tsekkaaSalasana(nimi, salasana);
+////            okSalasana = c.onkoSalasanaOK(nimi, salasana);
 //            if (okSalasana) {
 ////                c.u = c.annaUser(nimi);
 //            }
